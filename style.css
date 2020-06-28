@@ -2,7 +2,7 @@ body {
     /* border-radius: 10px; */
     /* box-shadow: 3px 3px 5px #535353; */
     min-width: 280px;
-    min-height: 200px;
+    min-height: 150px;
     position: relative;
     background-color: #e8f4f8;
 }
@@ -21,7 +21,8 @@ h1 {
     font-weight: bold;
     margin-left: 20px;
     margin-right: 20px;
-    margin-top: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 #milesTitle {
@@ -43,19 +44,23 @@ input[type="text"] {
     font-size: 10 pt;
 }
 
-/* #carResult, #busResult, #transitResult, #motorbikeResult, #planResult {
-    text-align: left;
-    float: right;
-    font-size: 10pt;
+#result1, #result2, #result3, #result4 {
+    font-family: Verdana;
+    font-size: 10 pt;
     margin-left: 20px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-} */
+}
+
+#result5 {
+    font-family: Verdana;
+    font-size: 10 pt;
+    margin-left: 20px;
+    margin-bottom: 30px;
+}
 
 #button {
     margin-left: 20px;
     margin-top: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 .line {
