@@ -5,9 +5,9 @@
   "description": "CliGen is a browser extension that automatically tracks and displays the transportation-associated carbon footprint for any trip with a single click.",
   "icons": {
     "16": "icons/climateGenExtensionIcon.png",
-    "32": "icons/nasapod32x32.png",
-    "48": "icons/nasapod48x48.png",
-    "128": "icons/nasapod128x128.png"
+    "32": "icons/climateGenExtensionIcon.png",
+    "48": "icons/climateGenExtensionIcon.png",
+    "128": "icons/climateGenExtensionIcon.png"
   },
   "browser_action": {
     "default_popup": "popup.html"
