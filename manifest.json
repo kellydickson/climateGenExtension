@@ -1,5 +1,5 @@
 {
-  "name": "NASA Picture of the day viewer",
+  "name": "CliGen",
   "version": "0.0.0.1",
   "manifest_version": 2,
   "description": "A chromium extension to show NASA's Picture of the Day.",
@@ -10,6 +10,6 @@
     "128": "icons/nasapod128x128.png"
   },
   "browser_action": {
-    "default_popup": "popup/popup.html"
+    "default_popup": "popup.html"
   }
 }
