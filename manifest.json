@@ -2,17 +2,14 @@
   "name": "CliGen",
   "version": "0.0.0.1",
   "manifest_version": 2,
-  "description": "A Chromium extension that automatically tracks and displays the transportation-associated carbon footprint for any trip.",
+  "description": "CliGen is a browser extension that automatically tracks and displays the transportation-associated carbon footprint for any trip with a single click.",
   "icons": {
-    "16": "icons/cligen.png",
-    "32": "icons/cligen.png",
-    "48": "icons/cligen.png",
-    "128": "icons/cligen.png"
+    "16": "icons/climateGenExtensionIcon.png",
+    "32": "icons/nasapod32x32.png",
+    "48": "icons/nasapod48x48.png",
+    "128": "icons/nasapod128x128.png"
   },
   "browser_action": {
     "default_popup": "popup.html"
-  },
-  "permissions": [
-    "https://api.triptocarbon.xyz/"
-  ]
+  }
 }
