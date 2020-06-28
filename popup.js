@@ -15,20 +15,24 @@ document.getElementById("BTNSUBMIT").addEventListener("click",  function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-  /*getAPIAsync('taxi')
+  document.querySelector('button').addEventListener('click', function () {
+    console.log("inside first block")
+  })
+
+  getAPIAsync('taxi')
   .then(data => {
     console.log("carbon footprint: ");
     console.log(data);
     myCarbonFootprint = data.carbonFootprint;
     console.log("CARBON FOOTPRINT"+myCarbonFootprint)
     displayResults();
-  })*/
+  })
   //var total = calculateCarbonFootprint(10,11, 12,13,14);
   //console.log("CCF: " + calculateCarbonFootprint());
-  calculateCarbonFootprint(10,11, 12,13,14)
+  /*calculateCarbonFootprint(10,11, 12,13,14)
   .then(total => {
     console.log("CCF: "+total);
-  })
+  })*/
 });
 
 function displayResults() {
