@@ -19,13 +19,13 @@ h1 {
     margin-top: 20px;
 }
 
-#carTitle, #busTitle, #transitTitle, #motorbikeTitle, #planeTitle {
+#milesTitle {
     float:left;
     font-size: 10pt;
     margin-left: 20px;
 }
 
-#byCar, #byBus, #byTransit, #byMotorbike, #byPlane {
+#miles {
     float:left;
     margin-left: 15px;
 }

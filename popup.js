@@ -15,10 +15,11 @@ document.addEventListener('DOMContentLoaded', function() {
   })*/
   //var total = calculateCarbonFootprint(10,11, 12,13,14);
   //console.log("CCF: " + calculateCarbonFootprint());
-  calculateCarbonFootprint(10,11, 12,13,14)
+  /*calculateCarbonFootprint(10,11, 12,13,14)
   .then(total => {
     console.log("CCF: "+total);
-  })
+  })*/
+  calculateCarbonFootprint(122);
 });
 
 function displayResults() {
@@ -30,7 +31,44 @@ function displayResults() {
   document.getElementById('comp2').style.display = 'block';
 }
 
-async function calculateCarbonFootprint(carMiles,busMiles,transitMiles,motorbikeMiles,planeMiles){
+async function calculateCarbonFootprint(miles){
+  var carMeasure;
+  var busMeasure;
+  var transitMeasure;
+  var motorbikeMeasure;
+  var planeMeasure;
+  console.log('CCF MILES: '+miles);
+  getAPIAsync(miles,'anyCar')
+  .then(data => {
+    carMeasure = data.carbonFootprint; //*carMiles
+    console.log("car: "+carMeasure);
+  })
+  getAPIAsync(miles,'bus')
+  .then(data => {
+    busMeasure = data.carbonFootprint; //*carMiles
+    console.log("bus: "+busMeasure);
+  })
+  getAPIAsync(miles,'transitRail')
+  .then(data => {
+    transitMeasure = data.carbonFootprint; //*carMiles
+    console.log("transit: "+transitMeasure);
+  })
+  getAPIAsync(miles,'motorbike')
+  .then(data => {
+    motorbikeMeasure = data.carbonFootprint; //*carMiles
+    console.log("motorbike: "+motorbikeMeasure);
+  })
+  getAPIAsync(miles,'businessFlight')
+  .then(data => {
+    planeMeasure = data.carbonFootprint; //*carMiles
+    console.log("plane: "+planeMeasure);
+  })
+  //var total = carMeasure+busMeasure+transitMeasure+motorbikeMeasure+planeMeasure;
+  //console.log("TOTAL: " + total);
+}
+
+
+/*async function calculateCarbonFootprint(carMiles,busMiles,transitMiles,motorbikeMiles,planeMiles){
   var carMeasure;
   var busMeasure;
   var transitMeasure;
@@ -56,20 +94,32 @@ async function calculateCarbonFootprint(carMiles,busMiles,transitMiles,motorbike
     motorbikeMeasure = data.carbonFootprint; //*carMiles
     console.log("motorbike: "+motorbikeMeasure);
   })
+  var total;
   getAPIAsync('businessFlight')
   .then(data => {
     planeMeasure = data.carbonFootprint; //*carMiles
     console.log("plane: "+planeMeasure);
+    total = parseInt(carMeasure)+parseInt(busMeasure)+parseInt(transitMeasure)+parseInt(motorbikeMeasure)+parseInt(planeMeasure);
+    console.log("yup" + carMeasure + " "+busMeasure+ " "+transitMeasure+" "+motorbikeMeasure+ " "+ planeMeasure);
+    console.log("total value!!!!! "+total);
   })
-  var total = carMeasure+busMeasure+transitMeasure+motorbikeMeasure+planeMeasure;
+  //var total = carMeasure+busMeasure+transitMeasure+motorbikeMeasure+planeMeasure;
   //console.log("TOTAL: " + total);
+  displayTotal(total);
   return total;
+}*/
+
+async function displayTotal(total){
+  console.log("the total value is "+total);
 }
 
-async function getAPIAsync(mode)
+async function getAPIAsync(miles,mode)
 {
-  let url = 'https://api.triptocarbon.xyz/v1/footprint?activity=10&activityType=miles&country=usa&mode=';
-  let response = await fetch(url+mode);//check that this works
+  console.log('miles: '+ miles + 'mode: ' + mode);
+  //let url = 'https://api.triptocarbon.xyz/v1/footprint?activity=10&activityType=miles&country=usa&mode=';
+  let url = 'https://api.triptocarbon.xyz/v1/footprint?activity=';
+  url = url + miles + '&activityType=miles&country=usa&mode=' + mode;
+  let response = await fetch(url);//check that this works
   let data = await response.json()
   return data;
 }
