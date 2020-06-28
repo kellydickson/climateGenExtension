@@ -3,7 +3,21 @@ var myCarbonFootprint='0';
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelector('button').addEventListener('click', function () {
     if(document.getElementById('miles').value=='') {
-      document.getElementById('cf').innerText = 'Error: Please input a value for miles.';
+      document.getElementById('cf').innerText = 'Error: Please input a numerical value for miles.';
+      document.getElementById('result1').style.display = 'none';
+      document.getElementById('result2').style.display = 'none';
+      document.getElementById('result3').style.display = 'none';
+      document.getElementById('result4').style.display = 'none';
+      document.getElementById('result5').style.display = 'none';
+      document.getElementById('cf').style.display = 'block';
+    }
+    else if (isNaN(document.getElementById('miles').value)){
+      document.getElementById('cf').innerText = 'Error: Please input a numerical value for miles.';
+      document.getElementById('result1').style.display = 'none';
+      document.getElementById('result2').style.display = 'none';
+      document.getElementById('result3').style.display = 'none';
+      document.getElementById('result4').style.display = 'none';
+      document.getElementById('result5').style.display = 'none';
       document.getElementById('cf').style.display = 'block';
     }
     else {
