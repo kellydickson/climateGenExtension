@@ -1,6 +1,8 @@
-body {
+body {    
+    /* border-radius: 10px; */
+    /* box-shadow: 3px 3px 5px #535353; */
     min-width: 280px;
-    min-height: 350px;
+    min-height: 200px;
     position: relative;
     background-color: #e8f4f8;
 }
@@ -8,15 +10,18 @@ body {
 h1 {
     font-family: Verdana;
     text-align: center;
+    font-weight: bold;
     margin-top: 30px;
     margin-bottom: 10px;
 }
 
 #cf, #comp1, #comp2 {
+    font-family: Verdana;
     text-align: center;
+    font-weight: bold;
     margin-left: 20px;
     margin-right: 20px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 #milesTitle {
@@ -26,18 +31,84 @@ h1 {
 }
 
 #miles {
-    float:left;
-    margin-left: 15px;
+    float: left;
+    margin-left: 20px;
 }
 
 input[type="text"] {
     max-width: 50px;
 }
 
+#error {
+    font-size: 10 pt;
+}
+
+/* #carResult, #busResult, #transitResult, #motorbikeResult, #planResult {
+    text-align: left;
+    float: right;
+    font-size: 10pt;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+} */
+
 #button {
     margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 30px;
 }
 
 .line {
     margin-bottom: 10px;
 }
+
+.shadow {
+    -moz-box-shadow:    3px 3px 5px 6px #ccc;
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+    box-shadow:         3px 3px 5px 6px #ccc;
+  }
+
+/* .boxshadow 
+{
+  -moz-box-shadow: 3px 3px 5px #535353;
+  -webkit-box-shadow: 3px 3px 5px #535353;       
+  box-shadow: 3px 3px 5px #535353;
+}
+
+.roundbox
+{  
+  -moz-border-radius: 6px 6px 6px 6px;
+  -webkit-border-radius: 6px;  
+  border-radius: 6px 6px 6px 6px;
+} */
+/* 
+
+.c-error .c-validation{ 
+    background: #c51244 !important;
+    padding: 10px !important;
+    border-radius: 0 !important;
+    position: relative; 
+    display: inline-block !important;
+    box-shadow: 1px 1px 1px #aaaaaa;
+    margin-top: 10px;
+  }
+  .c-error  .c-validation:before{ 
+    content: ''; 
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #c51244;
+    position: absolute; 
+    top: -10px; 
+  }
+  .c-label:after{
+    color: #c51244 !important;
+  }
+  .c-error input, .c-error select, .c-error .c-choice-option{ 
+    background: #fff0f4; 
+    color: #c51244;
+  }
+  .c-error input, .c-error select{ 
+    border: 1px solid #c51244 !important; 
+  } */
