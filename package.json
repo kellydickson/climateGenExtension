@@ -1,0 +1,28 @@
+{
+  "name": "climategen_ext",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kellydickson/climateGenExtension.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kellydickson/climateGenExtension/issues"
+  },
+  "homepage": "https://github.com/kellydickson/climateGenExtension#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "save-dev": "0.0.1-security",
+    "webpack": "^4.43.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.12"
+  }
+}
