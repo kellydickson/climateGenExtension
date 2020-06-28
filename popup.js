@@ -1,4 +1,18 @@
 var myCarbonFootprint='0';
+var distance = '0';
+var modeOfTransport = '';
+
+fillValuesNoJQuery = function () {
+  distance = document.getElementById("txtbox1").value;
+  modeOfTransport = document.getElementById("txtbox2").value;
+  displayResults();
+}
+
+document.getElementById("BTNSUBMIT").addEventListener("click",  function() {
+  distance = document.getElementById("txtbox1").value;
+  modeOfTransport = document.getElementById("txtbox2").value;
+  displayResults();
+});
 
 document.addEventListener('DOMContentLoaded', function() {
   /*getAPIAsync('taxi')
@@ -26,7 +40,7 @@ function displayResults() {
   document.getElementById('comp2').style.display = 'block';
 }
 
-async function calculateCarbonFootprint(carMiles,busMiles,transitMiles,motorbikeMiles,planeMiles){
+async function calculateCarbonFootprint(distance){
   var carMeasure;
   var busMeasure;
   var transitMeasure;
@@ -34,27 +48,27 @@ async function calculateCarbonFootprint(carMiles,busMiles,transitMiles,motorbike
   var planeMeasure;
   getAPIAsync('anyCar')
   .then(data => {
-    carMeasure = data.carbonFootprint; //*carMiles
+    carMeasure = data.carbonFootprint*distance; //*carMiles
     console.log("car: "+carMeasure);
   })
   getAPIAsync('bus')
   .then(data => {
-    busMeasure = data.carbonFootprint; //*carMiles
+    busMeasure = data.carbonFootprint*distance; //*carMiles
     console.log("bus: "+busMeasure);
   })
   getAPIAsync('transitRail')
   .then(data => {
-    transitMeasure = data.carbonFootprint; //*carMiles
+    transitMeasure = data.carbonFootprint*distance; //*carMiles
     console.log("transit: "+transitMeasure);
   })
   getAPIAsync('motorbike')
   .then(data => {
-    motorbikeMeasure = data.carbonFootprint; //*carMiles
+    motorbikeMeasure = data.carbonFootprint*distance; //*carMiles
     console.log("motorbike: "+motorbikeMeasure);
   })
   getAPIAsync('businessFlight')
   .then(data => {
-    planeMeasure = data.carbonFootprint; //*carMiles
+    planeMeasure = data.carbonFootprint*distance; //*carMiles
     console.log("plane: "+planeMeasure);
   })
   var total = carMeasure+busMeasure+transitMeasure+motorbikeMeasure+planeMeasure;
