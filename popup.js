@@ -19,39 +19,133 @@ async function calculateCarbonFootprint(miles){
   var transitMeasure;
   var motorbikeMeasure;
   var planeMeasure;
+  var result1val;
+  var result2val;
+  var result3val;
+  var result4val;
+  var result5val;
   console.log('CCF MILES: '+miles);
   getAPIAsync(miles,'anyCar')
   .then(data => {
     carMeasure = data.carbonFootprint;
+    //result1val = data.carbonFootprint;
     document.getElementById('cf').innerText = 'Carbon footprint (Pounds CO2):';
     document.getElementById('cf').style.display = 'block';
-    document.getElementById('carResult').innerText = 'Car: '+carMeasure;
-    document.getElementById('carResult').style.display = 'block';
+    console.log('car: '+carMeasure);
+    //document.getElementById('carResult').innerText = 'Car: '+carMeasure;
+    //document.getElementById('carResult').style.display = 'block';
+    //document.getElementById('result1').innerText = 'Car: '+carMeasure;
   })
   getAPIAsync(miles,'bus')
   .then(data => {
     busMeasure = data.carbonFootprint;
-    document.getElementById('busResult').innerText = 'Bus: '+busMeasure;
-    document.getElementById('busResult').style.display = 'block';
+    //result2val = data.carbonFootprint;
+    console.log('bus: '+busMeasure);
+    //document.getElementById('busResult').innerText = 'Bus: '+busMeasure;
+    //document.getElementById('busResult').style.display = 'block';
+    //document.getElementById('result2').innerText = 'Car: '+carMeasure;
   })
   getAPIAsync(miles,'transitRail')
   .then(data => {
     transitMeasure = data.carbonFootprint;
-    document.getElementById('transitResult').innerText = 'Transit: '+transitMeasure;
-    document.getElementById('transitResult').style.display = 'block';
+    //result3val = data.carbonFootprint;
+    console.log('transit: '+transitMeasure);
+    //document.getElementById('transitResult').innerText = 'Transit: '+transitMeasure;
+    //document.getElementById('transitResult').style.display = 'block';
+    //document.getElementById('result3').innerText = 'Transit: '+transitMeasure;
   })
   getAPIAsync(miles,'motorbike')
   .then(data => {
-    motorbikeMeasure = data.carbonFootprint; 
-    document.getElementById('motorbikeResult').innerText = 'Motorbike: '+motorbikeMeasure;
-    document.getElementById('motorbikeResult').style.display = 'block';
+    motorbikeMeasure = data.carbonFootprint;
+    //result4val = data.carbonFootprint; 
+    console.log('motorbike: '+motorbikeMeasure);
+    //document.getElementById('motorbikeResult').innerText = 'Motorbike: '+motorbikeMeasure;
+    //document.getElementById('motorbikeResult').style.display = 'block';
+    //document.getElementById('result4').innerText = 'Motorbike: '+motorbikeMeasure;
   })
   getAPIAsync(miles,'businessFlight')
   .then(data => {
     planeMeasure = data.carbonFootprint;
-    document.getElementById('planeResult').innerText = 'Plane: '+planeMeasure;
-    document.getElementById('planeResult').style.display = 'block';
+    //result5val = data.carbonFootprint;
+    console.log('plane: '+planeMeasure);
+    //document.getElementById('planeResult').innerText = 'Plane: '+planeMeasure;
+    //document.getElementById('planeResult').style.display = 'block';
+    //document.getElementById('result5').innerText = 'Plane: '+planeMeasure;
+    setTimeout(()=>{
+      var res = ['Car: '+carMeasure,'Bus: '+busMeasure,'Transit: '+transitMeasure,'Motorbike: '+motorbikeMeasure,'Plane: '+planeMeasure];
+
+    for (let i=0; i<5; i++){
+      let min = i;
+      for (let j=i+1; j<5; j++){
+        var resmin = res[min];
+        var resj=res[j];
+        var slice1=resmin.slice(resmin.lastIndexOf(':')+2);
+        var slice2=resj.slice(resj.lastIndexOf(':')+2);
+        //console.log('slice1: '+slice1);
+        //console.log('slice2: '+slice2);
+        if (slice1>slice2){
+          min=j;
+        }
+        if (min!==i){
+          let temp=res[i];
+          res[i]=res[min];
+          res[min]=temp;
+        }
+      }
+    }
+    console.log(res);
+
+    document.getElementById('result1').innerText = res[0];
+    document.getElementById('result2').innerText = res[1];
+    document.getElementById('result3').innerText = res[2];
+    document.getElementById('result4').innerText = res[3];
+    document.getElementById('result5').innerText = res[4];
+
+    document.getElementById('result1').style.display = 'block';
+    document.getElementById('result2').style.display = 'block';
+    document.getElementById('result3').style.display = 'block';
+    document.getElementById('result4').style.display = 'block';
+    document.getElementById('result5').style.display = 'block';
+
   })
+    },500);
+
+    /*var res = ['Car: '+carMeasure,'Bus: '+busMeasure,'Transit: '+transitMeasure,'Motorbike: '+motorbikeMeasure,'Plane: '+planeMeasure];
+
+    for (let i=0; i<5; i++){
+      let min = i;
+      for (let j=i+1; j<5; j++){
+        var resmin = res[min];
+        var resj=res[j];
+        var slice1=resmin.slice(resmin.lastIndexOf(':')+2);
+        var slice2=resj.slice(resj.lastIndexOf(':')+2);
+        //console.log('slice1: '+slice1);
+        //console.log('slice2: '+slice2);
+        if (slice1>slice2){
+          min=j;
+        }
+        if (min!==i){
+          let temp=res[i];
+          res[i]=res[min];
+          res[min]=temp;
+        }
+      }
+    }
+    console.log(res);
+
+    document.getElementById('result1').innerText = res[0];
+    document.getElementById('result2').innerText = res[1];
+    document.getElementById('result3').innerText = res[2];
+    document.getElementById('result4').innerText = res[3];
+    document.getElementById('result5').innerText = res[4];
+
+    document.getElementById('result1').style.display = 'block';
+    document.getElementById('result2').style.display = 'block';
+    document.getElementById('result3').style.display = 'block';
+    document.getElementById('result4').style.display = 'block';
+    document.getElementById('result5').style.display = 'block';
+
+  })*/
 }
 
 async function getAPIAsync(miles,mode)
