@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html>
   <head>
     <meta charset="UTF-8" />
@@ -9,26 +8,36 @@
   </head>
   <body>
     <h1>CliGen</h1>
-    <table class="auto-style1">
-      <tr>
-          <td>Distance</td>
-          <td><input type="text" value="" id="txtbox1" /></td>
-          <td>&nbsp;</td>
-      </tr>
-      <tr>
-          <td>Preferred Mode of Transport</td>
-          <td><input type="text" value="" id="txtbox2" /></td>
-          <td>&nbsp;</td>
-      </tr>
-      <tr>
-          <td></td>
-          <td><input type="button" value="SUBMIT" id="BTNSUBMIT"/></td>
-      </tr>
-  </table>
-
+    <br>
+    <div class="line">
+      <div id="carTitle">Car miles </div>
+      <input type="text" id="byCar">
+      <br>
+    </div>
+    <div class="line"></div>
+      <div id="busTitle">Bus miles </div>
+      <input type="text" id="byBus">
+      <br>
+    </div>
+    <div class="line">
+      <br>
+      <div id="transitTitle">Transit miles </div>
+      <input type="text" id="byTransit">
+    </div>
+    <div class="line">
+      <br>
+      <div id="motorbikeTitle">Motorbike miles </div>
+      <input type="text" id="byMotorbike">
+    </div>
+    <div class="line">
+      <br>
+      <div id="planeTitle">Plane miles </div>
+      <input type="text" id="byPlane">
+      <br>
+    </div>
+    <button type="button" id="button">Submit</button>
     <div id="cf" style="display:none;"></div>
     <div id="comp1" style="display:none;"></div>
     <div id="comp2" style="display:none;"></div>
   </body>
 </html>
-

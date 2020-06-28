@@ -1,38 +1,24 @@
 var myCarbonFootprint='0';
-var distance = '0';
-var modeOfTransport = '';
-
-fillValuesNoJQuery = function () {
-  distance = document.getElementById("txtbox1").value;
-  modeOfTransport = document.getElementById("txtbox2").value;
-  displayResults();
-}
-
-document.getElementById("BTNSUBMIT").addEventListener("click",  function() {
-  distance = document.getElementById("txtbox1").value;
-  modeOfTransport = document.getElementById("txtbox2").value;
-  displayResults();
-});
 
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelector('button').addEventListener('click', function () {
     console.log("inside first block")
   })
 
-  getAPIAsync('taxi')
+  /*getAPIAsync('taxi')
   .then(data => {
     console.log("carbon footprint: ");
     console.log(data);
     myCarbonFootprint = data.carbonFootprint;
     console.log("CARBON FOOTPRINT"+myCarbonFootprint)
     displayResults();
-  })
+  })*/
   //var total = calculateCarbonFootprint(10,11, 12,13,14);
   //console.log("CCF: " + calculateCarbonFootprint());
-  /*calculateCarbonFootprint(10,11, 12,13,14)
+  calculateCarbonFootprint(10,11, 12,13,14)
   .then(total => {
     console.log("CCF: "+total);
-  })*/
+  })
 });
 
 function displayResults() {
@@ -44,7 +30,7 @@ function displayResults() {
   document.getElementById('comp2').style.display = 'block';
 }
 
-async function calculateCarbonFootprint(distance){
+async function calculateCarbonFootprint(carMiles,busMiles,transitMiles,motorbikeMiles,planeMiles){
   var carMeasure;
   var busMeasure;
   var transitMeasure;
@@ -52,27 +38,27 @@ async function calculateCarbonFootprint(distance){
   var planeMeasure;
   getAPIAsync('anyCar')
   .then(data => {
-    carMeasure = data.carbonFootprint*distance; //*carMiles
+    carMeasure = data.carbonFootprint; //*carMiles
     console.log("car: "+carMeasure);
   })
   getAPIAsync('bus')
   .then(data => {
-    busMeasure = data.carbonFootprint*distance; //*carMiles
+    busMeasure = data.carbonFootprint; //*carMiles
     console.log("bus: "+busMeasure);
   })
   getAPIAsync('transitRail')
   .then(data => {
-    transitMeasure = data.carbonFootprint*distance; //*carMiles
+    transitMeasure = data.carbonFootprint; //*carMiles
     console.log("transit: "+transitMeasure);
   })
   getAPIAsync('motorbike')
   .then(data => {
-    motorbikeMeasure = data.carbonFootprint*distance; //*carMiles
+    motorbikeMeasure = data.carbonFootprint; //*carMiles
     console.log("motorbike: "+motorbikeMeasure);
   })
   getAPIAsync('businessFlight')
   .then(data => {
-    planeMeasure = data.carbonFootprint*distance; //*carMiles
+    planeMeasure = data.carbonFootprint; //*carMiles
     console.log("plane: "+planeMeasure);
   })
   var total = carMeasure+busMeasure+transitMeasure+motorbikeMeasure+planeMeasure;
